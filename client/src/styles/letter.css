@@ -1,0 +1,61 @@
+.letter-paper {
+  background: url('../assets/paper-texture.svg') center/cover;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.letter-content {
+  position: relative;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  font-family: 'Lora', serif;
+  line-height: 1.8;
+  color: #2c1810;
+}
+
+.stamp-corner {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 60px;
+  height: 60px;
+  background: url('../assets/wax-seal.svg') center/cover;
+  opacity: 0.8;
+  border-radius: 4px;
+  transform: scale(0.7);
+}
+
+.flower-corner {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: 80px;
+  height: 80px;
+  opacity: 0.6;
+  transform: rotate(-45deg);
+}
+
+.letter-text {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 640px) {
+  .letter-paper {
+    padding: 1rem;
+  }
+
+  .letter-content {
+    padding: 1.5rem;
+  }
+
+  .stamp-corner,
+  .flower-corner {
+    width: 40px;
+    height: 40px;
+  }
+}

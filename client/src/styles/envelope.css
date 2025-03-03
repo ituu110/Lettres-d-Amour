@@ -1,0 +1,75 @@
+.envelope-container {
+  width: 300px;
+  height: 200px;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.envelope.open {
+  transform: rotateX(180deg);
+}
+
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/envelope-texture.svg') center/cover;
+  backface-visibility: hidden;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flap {
+  clip-path: polygon(0 0, 50% 50%, 100% 0);
+  background: url('../assets/envelope-texture.svg') center/cover;
+  transform-origin: top;
+  transition: transform 0.5s;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.pocket {
+  clip-path: polygon(0 50%, 50% 100%, 100% 50%, 100% 100%, 0 100%);
+}
+
+.wax-seal {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url('../assets/wax-seal.svg') center/cover;
+  border-radius: 50%;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.letter {
+  position: fixed;
+  width: 90%;
+  height: 90%;
+  background: url('../assets/paper-texture.svg') center/cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  opacity: 0;
+  transition: transform 1s ease-out, opacity 0.5s ease-in;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.envelope.open .letter {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
